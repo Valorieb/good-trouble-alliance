@@ -11,12 +11,12 @@ body {
   text-align: center;
 }
 main {
-  width: 1200px;
+  max-width: 300px;
   display: block;
   margin: 0 auto;
 }
 .main-text {
-  width: 600px;
+  max-width: 290px;
   display: block;
   margin: 0 auto;
 }
@@ -30,26 +30,41 @@ h1 {
   font-style: normal;
 
   text-align: center;
-  font-size: 60px;
+  font-size: 40px;
 }
 h2 {
   font-family: "Slackside One", cursive;
   font-weight: 400;
   font-style: normal;
   text-align: center;
-  font-size: 50px;
+  font-size: 35px;
 }
+iframe {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border: 0;
+  }
 nav {
   background-color: rgb(63, 20, 104);
+  display:flex;
+  justify-content: center;
+
 }
 
 nav li {
   list-style-type: none;
-  padding: 10px;
+  padding: 15px;
 }
 nav ul {
   display: flex;
   justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  
 }
 
 .logo-container {
