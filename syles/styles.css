@@ -1,0 +1,92 @@
+a {
+  color: white;
+}
+
+body {
+  background-color: #222831;
+  color: #eeeeee;
+  font-family: "Oxygen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+}
+main {
+  width: 1200px;
+  display: block;
+  margin: 0 auto;
+}
+.main-text {
+  width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+.meeting-info {
+  font-weight: 900;
+  font-size: x-large;
+}
+h1 {
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+  text-align: center;
+  font-size: 60px;
+}
+h2 {
+  font-family: "Slackside One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  font-size: 50px;
+}
+nav {
+  background-color: rgb(63, 20, 104);
+}
+
+nav li {
+  list-style-type: none;
+  padding: 10px;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: larger;
+}
+
+.copy-button {
+  background-color: transparent;
+  border: none;
+  padding: 0.2em;
+  font-size: 1.2em;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.copy-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.copy-message {
+  opacity: 0;
+  margin-left: 0.5em;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.copy-message.show {
+  opacity: 1;
+}
