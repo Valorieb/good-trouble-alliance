@@ -72,6 +72,10 @@ footer {
   margin: 20px;
 }
 
+.logo {
+  padding: 10px;
+}
+
 .logo-container {
   display: flex;
   align-items: center;
