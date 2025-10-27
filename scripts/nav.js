@@ -2,7 +2,7 @@ const navbar = document.querySelector("nav");
 const ul = document.createElement("ul");
 
 
-const menuItems = ["Our Vision","Join Us","Contact", "Resources"];
+const menuItems = ["About","Join","Contact", "Resources"];
 const menuIDs = ["vision", "join","contact","resources"];
 
 const renderNav = ()=>{
