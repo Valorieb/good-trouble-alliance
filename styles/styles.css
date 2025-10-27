@@ -50,9 +50,11 @@ iframe {
   border: 0;
 }
 nav {
-  background-color: rgb(63, 20, 104);
+  background-color: rgb(20, 104, 103);
   display: flex;
   justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 nav li {
@@ -72,13 +74,17 @@ footer {
   margin: 20px;
 }
 
+
+
 .logo {
   padding-bottom: 10px;
 }
 
 .logo-container {
   display: flex;
-  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  
 }
 
 .logo-text {

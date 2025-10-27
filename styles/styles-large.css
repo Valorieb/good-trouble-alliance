@@ -6,9 +6,18 @@
         max-width: 1200px;
       }
       h1 {
-        font-size: 60px;
+        font-size: 0px;
       }
       h2 {
         font-size: 50px;
+      }
+
+
+      .hero{
+        display:block;
+        max-width: 1200px;
+        margin-left: 0;
+        margin-right:auto;
+        text-align: left;
       }
 }
