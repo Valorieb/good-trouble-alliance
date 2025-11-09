@@ -74,8 +74,6 @@ footer {
   margin: 20px;
 }
 
-
-
 .logo {
   padding-bottom: 10px;
 }
@@ -84,7 +82,7 @@ footer {
   display: flex;
   margin: 0 auto;
   max-width: 1200px;
-  
+  align-items: center;
 }
 
 .logo-text {
@@ -92,6 +90,7 @@ footer {
   font-weight: 400;
   font-style: normal;
   font-size: larger;
+  
 }
 
 .copy-button {
@@ -124,15 +123,14 @@ footer {
   padding-bottom: 20px;
 }
 
-  .hero{
-        display:block;
-        max-width: 1200px;
-        width: 100%;
-        height: auto;
+.hero {
+  display: block;
+  max-width: 1200px;
+  width: 100%;
+  height: auto;
+}
 
-      }
-
-.rsvp-form{
+.rsvp-form {
   background-color: #a5a7aa;
   border-radius: 10px;
   height: 1950px;
