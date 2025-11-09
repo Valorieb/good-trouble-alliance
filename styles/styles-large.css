@@ -11,8 +11,13 @@
   h2 {
     font-size: 50px;
   }
+  
+  nav li{
+    padding: 15px;
+  }
 
   .rsvp-form {
     height: 1350px;
   }
+
 }
