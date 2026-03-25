@@ -24,7 +24,7 @@ const dotsContainer = document.querySelector(".carousel-dots");
 
 let autoSlide = setInterval(() => {
   showSlide(currentIndex + 1);
-}, 4000);
+}, 5000);
 
 carousel.addEventListener("mouseenter", () => {
   clearInterval(autoSlide);
@@ -33,7 +33,7 @@ carousel.addEventListener("mouseenter", () => {
 carousel.addEventListener("mouseleave", () => {
   autoSlide = setInterval(() => {
     showSlide(currentIndex + 1);
-  }, 4000);
+  }, 5000);
 });
 
 function resetAutoSlide() {
