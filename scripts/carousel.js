@@ -40,7 +40,7 @@ function resetAutoSlide() {
   clearInterval(autoSlide);
   autoSlide = setInterval(() => {
     showSlide(currentIndex + 1);
-  }, 4000);
+  }, 5000);
 }
 
 prevBtn.addEventListener("click", () => {
