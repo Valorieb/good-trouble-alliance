@@ -22,11 +22,11 @@
   }
 
   .carousel {
-    max-width: 750px;
+    max-width: 550px;
   }
 
   .carousel-item img{
-    height: 550px;
+    height: 400px;
   }
 
   .opposition {

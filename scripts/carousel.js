@@ -7,58 +7,10 @@ const pauseBtn = document.querySelector(".pause-btn");
 const dotsContainer = document.querySelector(".carousel-dots");
 
 let currentIndex = 0;
+let autoSlide;
 let isPaused = false;
-let autoSlide = null;
 
-// -----------------------
-// 1️⃣ Show a specific slide
-// -----------------------
-function showSlide(index) {
-  if (index < 0) index = items.length - 1;
-  if (index >= items.length) index = 0;
-
-  carouselInner.style.transform = `translateX(-${index * 100}%)`;
-  currentIndex = index;
-
-  // Update dots
-  const dots = document.querySelectorAll(".carousel-dots span");
-  dots.forEach((dot) => dot.classList.remove("active"));
-  if (dots[currentIndex]) dots[currentIndex].classList.add("active");
-}
-
-// -----------------------
-// 2️⃣ Auto-slide functions
-// -----------------------
-function startAutoSlide() {
-  // Only start if not paused
-  if (isPaused) return;
-
-  // Clear any existing interval first
-  if (autoSlide) clearInterval(autoSlide);
-
-  autoSlide = setInterval(() => {
-    showSlide(currentIndex + 1);
-  }, 5000);
-}
-
-function stopAutoSlide() {
-  if (autoSlide) {
-    clearInterval(autoSlide);
-    autoSlide = null;
-  }
-}
-
-// -----------------------
-// 3️⃣ Reset auto-slide (after manual action)
-// -----------------------
-function resetAutoSlide() {
-  stopAutoSlide();
-  startAutoSlide();
-}
-
-// -----------------------
-// 4️⃣ Create dots dynamically
-// -----------------------
+// create dots
 items.forEach((_, index) => {
   const dot = document.createElement("span");
   dot.addEventListener("click", () => {
@@ -67,14 +19,22 @@ items.forEach((_, index) => {
   });
   dotsContainer.appendChild(dot);
 });
-
-// Set first dot active
 const dots = document.querySelectorAll(".carousel-dots span");
-if (dots.length > 0) dots[0].classList.add("active");
+dots[0].classList.add("active");
 
-// -----------------------
-// 5️⃣ Arrow navigation
-// -----------------------
+// show slide function
+function showSlide(index) {
+  if (index < 0) index = items.length - 1;
+  if (index >= items.length) index = 0;
+
+  carouselInner.style.transform = `translateX(-${index * 100}%)`;
+  currentIndex = index;
+
+  dots.forEach((dot) => dot.classList.remove("active"));
+  dots[currentIndex].classList.add("active");
+}
+
+// navigation
 prevBtn.addEventListener("click", () => {
   showSlide(currentIndex - 1);
   resetAutoSlide();
@@ -85,34 +45,49 @@ nextBtn.addEventListener("click", () => {
   resetAutoSlide();
 });
 
-// -----------------------
-// 6️⃣ Hover pause
-// -----------------------
-carousel.addEventListener("mouseenter", () => {
-  stopAutoSlide();
-});
-
-carousel.addEventListener("mouseleave", () => {
-  startAutoSlide();
-});
-
-// -----------------------
-// 7️⃣ Pause/Play button
-// -----------------------
+// pause/play button
 pauseBtn.addEventListener("click", () => {
   if (isPaused) {
-    isPaused = false;
-    pauseBtn.textContent = "⏸";
     startAutoSlide();
+    pauseBtn.textContent = "⏸";
   } else {
-    isPaused = true;
+    clearInterval(autoSlide);
     pauseBtn.textContent = "▶";
-    stopAutoSlide();
   }
+  isPaused = !isPaused;
 });
 
-// -----------------------
-// 8️⃣ Start carousel
-// -----------------------
-showSlide(0);
-startAutoSlide();
+// hover pause
+carousel.addEventListener("mouseenter", () => {
+  clearInterval(autoSlide);
+});
+carousel.addEventListener("mouseleave", () => {
+  if (!isPaused) startAutoSlide();
+});
+
+// auto-rotation
+function startAutoSlide() {
+  clearInterval(autoSlide);
+  autoSlide = setInterval(() => {
+    showSlide(currentIndex + 1);
+  }, 4000);
+}
+
+function resetAutoSlide() {
+  if (!isPaused) startAutoSlide();
+}
+
+// Intersection Observer to start only in view
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !autoSlide) {
+        startAutoSlide();
+        observer.unobserve(carousel);
+      }
+    });
+  },
+  { threshold: 0.5 },
+);
+
+observer.observe(carousel);
