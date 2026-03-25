@@ -213,6 +213,10 @@ footer {
   object-position: left center;
 }
 
+.right-center {
+  object-position: right center;
+}
+
 .top-center {
   object-position: top center;
 }
