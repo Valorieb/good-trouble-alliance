@@ -3,6 +3,7 @@ const carouselInner = document.querySelector(".carousel-inner");
 const items = document.querySelectorAll(".carousel-item");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
+const pauseBtn = document.querySelector(".pause-btn");
 
 let currentIndex = 0;
 
@@ -69,4 +70,22 @@ const dots = document.querySelectorAll(".carousel-dots span");
 if (dots.length > 0) {
   dots[0].classList.add("active");
 }
+
+let isPaused = false;
+
+pauseBtn.addEventListener("click", () => {
+  if (isPaused) {
+    // resume
+    autoSlide = setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, 5000);
+    pauseBtn.textContent = "⏸";
+  } else {
+    // pause
+    clearInterval(autoSlide);
+    pauseBtn.textContent = "▶";
+  }
+
+  isPaused = !isPaused;
+});
 

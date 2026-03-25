@@ -173,6 +173,7 @@ footer {
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 14px;
+  margin-right:45px;
 }
 
 .carousel-dots {
@@ -193,6 +194,23 @@ footer {
 
 .carousel-dots .active {
   background-color: #333;
+}
+
+.pause-btn {
+  position: absolute;
+  bottom: 40px;
+  right: 10px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+parade-banner-img {
+  object-position: left center;
 }
 
 button.prev,
