@@ -209,8 +209,12 @@ footer {
   font-size: 14px;
 }
 
-parade-banner-img {
+.left-center {
   object-position: left center;
+}
+
+.top-center {
+  object-position: top center;
 }
 
 button.prev,
