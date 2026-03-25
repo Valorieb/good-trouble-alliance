@@ -6,6 +6,7 @@ const nextBtn = document.querySelector(".next");
 const pauseBtn = document.querySelector(".pause-btn");
 
 let currentIndex = 0;
+let isPaused = false;
 
 function showSlide(index) {
   if (index < 0) index = items.length - 1;
@@ -28,16 +29,19 @@ let autoSlide = setInterval(() => {
 }, 5000);
 
 carousel.addEventListener("mouseenter", () => {
-  clearInterval(autoSlide);
+  if (!isPaused) clearInterval(autoSlide);
 });
 
 carousel.addEventListener("mouseleave", () => {
-  autoSlide = setInterval(() => {
-    showSlide(currentIndex + 1);
-  }, 5000);
+  if (!isPaused) {
+    autoSlide = setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, 5000);
+  }
 });
 
 function resetAutoSlide() {
+  if (isPaused) return;
   clearInterval(autoSlide);
   autoSlide = setInterval(() => {
     showSlide(currentIndex + 1);
@@ -71,7 +75,7 @@ if (dots.length > 0) {
   dots[0].classList.add("active");
 }
 
-let isPaused = false;
+
 
 pauseBtn.addEventListener("click", () => {
   if (isPaused) {
