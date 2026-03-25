@@ -136,6 +136,10 @@ footer {
   height: 1900px;
 }
 
+.emphasized-text{
+  font-size: x-large;
+}
+
 
 .carousel {
   position: relative;
