@@ -18,7 +18,7 @@ main {
   margin: 0 auto;
 }
 
-.main-text {
+.main-text, .what-we-do {
   max-width: 290px;
   display: block;
   margin: 0 auto;
@@ -223,6 +223,10 @@ footer {
 
 .top-center {
   object-position: top center;
+}
+
+.what-we-do p{
+  text-align: left;
 }
 
 button.prev,
